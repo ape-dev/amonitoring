@@ -23,10 +23,10 @@ def generate_report_avg_flight_delay():
         }
 
     }
-    index_name = 'amonitoring_flights1111221111'
+    index_name = 'amonitoring_flights'
     create_index(es_object, index_name, mapping)
 
-    with open('flights.json', 'r') as read_file:
+    with open('flights/flights.json', 'r') as read_file:
         flights = json.load(read_file) or []
 
     fields = ['Carrier', 'FlightDelayMin', 'DistanceKilometers']
@@ -53,4 +53,4 @@ def generate_report_avg_flight_delay():
         result['Carrier'].append(carrier.get('key'))
         result['Average FlightDelayMin'].append(carrier.get('avg_delay', {}).get('value'))
 
-    pandas.DataFrame(result).to_csv('flights.csv')
+    pandas.DataFrame(result).to_csv('flights/flights.csv')
