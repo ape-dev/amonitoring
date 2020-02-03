@@ -24,7 +24,7 @@ def generate_report_hosts_amount_bytes():
         }
 
     }
-    index_name = 'amonitoring_logs111121111'
+    index_name = 'amonitoring_logs'
     create_index(es_object, index_name, mapping)
 
     with open('logs/logs.json', 'r') as read_file:
