@@ -33,14 +33,14 @@ def generate_report_hosts_amount_bytes():
     fields = ['host', 'bytes', 'utc_time']
     add_docs_to_index(es_object, index_name, logs, fields)
     search_params = {
-        "aggs": {
-            "hosts": {
-                "terms": {
-                    "field": "host"
+        'aggs': {
+            'hosts': {
+                'terms': {
+                    'field': 'host'
                 },
-                "aggs": {
-                    "total_bytes": {
-                        "sum": {"field": "bytes"}
+                'aggs': {
+                    'total_bytes': {
+                        'sum': {'field': 'bytes'}
                     }
                 }
             }

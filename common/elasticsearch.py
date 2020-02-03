@@ -1,4 +1,3 @@
-from datetime import datetime, timezone
 from elasticsearch.helpers import bulk
 
 
@@ -13,10 +12,10 @@ def create_index(es_object, index_name, mapping):
         return es_object
 
     settings = {
-        "settings": {
-            "number_of_shards": 1
+        'settings': {
+            'number_of_shards': 1
         },
-        "mappings": mapping
+        'mappings': mapping
     }
 
     es_object.indices.create(index=index_name, body=settings)

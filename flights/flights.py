@@ -32,15 +32,14 @@ def generate_report_avg_flight_delay():
     fields = ['Carrier', 'FlightDelayMin', 'DistanceKilometers']
     add_docs_to_index(es_object, index_name, flights, fields)
     search_params = {
-
-        "aggs": {
-            "carriers": {
-                "terms": {
-                    "field": "Carrier"
+        'aggs': {
+            'carriers': {
+                'terms': {
+                    'field': 'Carrier'
                 },
-                "aggs": {
-                    "avg_delay": {
-                        "avg": {"field": "FlightDelayMin"}
+                'aggs': {
+                    'avg_delay': {
+                        'avg': {'field': 'FlightDelayMin'}
                     }
                 }
             }
